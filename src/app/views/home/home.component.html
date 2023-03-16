@@ -1,0 +1,29 @@
+<div class="home" dir="rtl">
+  <div class="container flex flex-col items-center justify-between h-screen  pt-12">
+    <div class="logo">
+      <img class="w-24" src="../../../assets/Retm Logo.svg" alt="Retm Logo">
+    </div>
+    <div class="text-center flex flex-col items-center gap-6">
+      <div class="xs:max-w-[440px] max-w-[340px]">
+        <h1 class="text-darkGreenColor font-bold text-[32px] xs:text-[40px] leading-[56px]">
+          إدارة المطاعم أصبحت
+          <span class="text-lightGreenColor">
+            سهلة مع رتم!</span>
+        </h1>
+      </div>
+      <div class="md:text-lg font-light max-w-[18rem] xs:max-w-md text-lightGrayColor ">
+        يمكِّنك رتم من إدارة مشروعك بالكامل وفي مكان واحد, فقط قم بإنشاء سحابتك الآن واستفد من كافة مزايا وتطبيقات رتم!
+      </div>
+      <div>
+        <button routerLink="cloud"
+          class="mx-auto flex items-center gap-3 bg-blueColor duration-200 hover:bg-darkBlueColor py-3 px-6 rounded-lg text-white text-base">
+          <span>إنشاء سحابة جديدة</span>
+          <fa-icon [icon]="arrow"></fa-icon>
+        </button>
+      </div>
+    </div>
+    <div>
+      <img class="hidden  xs:block" src="../../../assets/tablet-animation.gif" loading="lazy" alt="Tablet image">
+    </div>
+  </div>
+</div>

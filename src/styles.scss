@@ -1,37 +1,40 @@
 @tailwind base;
 @tailwind utilities;
 @tailwind components;
+@font-face {
+  font-family: "Teshrinar";
+  src: url("https://uploads-ssl.webflow.com/63b47a4f00ab98da785b4d1e/63b47b349c3e3fdfdfd25b84_TeshrinAR%2BLT-Regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Teshrinar";
+  src: url("https://uploads-ssl.webflow.com/63b47a4f00ab98da785b4d1e/63b47b34c0cc3911e43cfc30_TeshrinAR%2BLT-Light.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Teshrinar";
+  src: url("https://uploads-ssl.webflow.com/63b47a4f00ab98da785b4d1e/63b47b349c3e3ff067d25b85_TeshrinAR%2BLT-Bold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    @font-face {
-      font-family: "Teshrinar";
-      src: url("https://uploads-ssl.webflow.com/63b47a4f00ab98da785b4d1e/63b47b349c3e3fdfdfd25b84_TeshrinAR%2BLT-Regular.otf")
-        format("opentype");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "Teshrinar";
-      src: url("https://uploads-ssl.webflow.com/63b47a4f00ab98da785b4d1e/63b47b34c0cc3911e43cfc30_TeshrinAR%2BLT-Light.otf")
-        format("opentype");
-      font-weight: 300;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "Teshrinar";
-      src: url("https://uploads-ssl.webflow.com/63b47a4f00ab98da785b4d1e/63b47b349c3e3ff067d25b85_TeshrinAR%2BLT-Bold.otf")
-        format("opentype");
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
+    * {
+      box-sizing: border-box;
     }
     body {
       @apply bg-grayColor text-darkGrayColor text-sm;
-      font-family: Teshrinar, sans-serif;
+      font-family: "Teshrinar", sans-serif;
       input {
         @apply bg-transparent;
         &:focus {
