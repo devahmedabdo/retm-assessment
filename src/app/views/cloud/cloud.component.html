@@ -1,0 +1,40 @@
+<div dir="rtl">
+  <div class=" h-screen ml:px-14 ml:py-12 xs:py-8 xs:px-8 py-[15px] px-[15px] flex flex-col justify-between">
+    <div class="flex justify-between">
+      <div>
+        <button role="button" class="flex gap-3 rounded items-center hover:bg-darkGrayColor hover:bg-opacity-5 p-1">
+          <fa-icon class="text-lightGreenColor" [icon]="arrow"></fa-icon>
+          <span>الرجوع</span>
+        </button>
+      </div>
+      <div>
+        <img src="../../../assets/Retm Logo.svg" alt="Retm Logo">
+      </div>
+
+    </div>
+    <div class="form-section border relative">
+      <div class="form-steps absolute border h-[370px] flex flex-col justify-around top-1/2 -translate-y-1/2">
+        <div *ngFor="let step of steps">
+          <div class="step-number">
+            <span>{{step.number}}</span>
+            <fa-icon [icon]="check"></fa-icon>
+          </div>
+          <div class="step-desc">
+            <span>{{step.title}}</span>
+            <div>{{step.des}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-lightGrayColor flex justify-between text-xs xs:text-sm">
+
+      <a href="mailto:help@retm.sa.com" class="flex items-center gap-2">
+        <fa-icon [icon]="emailIcon"></fa-icon>
+        <span>help@retm.sa.com</span>
+      </a>
+      <div>
+        &copy; {{year}} RETM. All rights reserved.
+      </div>
+    </div>
+  </div>
+</div>

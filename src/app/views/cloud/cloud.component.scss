@@ -1,0 +1,43 @@
+.form-section {
+  min-height: calc(100vh - 150px);
+  .form-steps {
+    > div {
+      @apply flex gap-10 items-center;
+      .step-desc {
+        @apply flex flex-col gap-2;
+        span {
+          @apply font-normal text-darkGrayColor;
+        }
+        div {
+          @apply font-light text-lightGrayColor;
+        }
+      }
+      .step-number {
+        @apply relative w-8 h-8 border leading-8 rounded-full text-center bg-grayColor border-vLightGrayColor text-vLightGrayColor;
+        fa-icon {
+          @apply absolute opacity-0 left-1/2 -translate-x-1/2;
+        }
+      }
+      &.done {
+        .step-number {
+          @apply bg-white border-lightGreenColor text-lightGreenColor;
+          span {
+            @apply opacity-0;
+          }
+          fa-icon {
+            @apply opacity-100;
+          }
+        }
+      }
+      &.active {
+        .step-number {
+          @apply bg-lightGreenColor border-lightGreenColor text-white;
+        }
+      }
+    }
+    &::after {
+      @apply h-full absolute right-[15px] -z-10 bg-vLightGrayColor w-[1px];
+      content: "";
+    }
+  }
+}
