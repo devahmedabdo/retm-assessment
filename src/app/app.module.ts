@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenCheckerComponent } from './views/token-checker/token-checker.component';
 import { ErrorComponent } from './views/error/error.component';
+import { ApiService } from './services/api.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ErrorComponent } from './views/error/error.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

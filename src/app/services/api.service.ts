@@ -13,6 +13,6 @@ export class ApiService {
     return this.http.get(apiUrl + 'get=' + token);
   }
   checkCode(code: any) {
-    return this.http.get(apiUrl + 'Code=' + code);
+    return this.http.get(apiUrl + 'serviceCode=' + code);
   }
 }
