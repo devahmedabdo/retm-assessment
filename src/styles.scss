@@ -74,14 +74,17 @@
     @apply md:text-lg font-light max-w-[18rem] xs:max-w-md text-lightGrayColor text-center;
   }
   .formInput {
-    @apply pt-5 pb-1;
+    @apply pb-1;
     label {
       @apply font-bold text-sm text-darkGrayColor;
     }
     > div {
-      @apply pt-3 pb-1;
+      @apply pt-3 pb-1 relative;
       input {
         @apply bg-white w-full py-[18px] px-[22px] rounded-lg;
+      }
+      fa-icon {
+        @apply absolute left-5 top-1/2 -translate-y-1/2 text-xl cursor-pointer;
       }
     }
     p {

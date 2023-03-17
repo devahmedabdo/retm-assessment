@@ -4,6 +4,8 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import {
   faArrowLeft,
   faCheck,
+  faEye,
+  faEyeSlash,
   faLock,
 } from '@fortawesome/free-solid-svg-icons';
 import { ApiService } from 'src/app/services/api.service';
@@ -18,6 +20,8 @@ export class CloudComponent implements OnInit {
   emailIcon = faEnvelope;
   check = faCheck;
   lock = faLock;
+  eay = faEye;
+  eayslash = faEyeSlash;
   //
   year: number = new Date().getFullYear();
   //
@@ -45,12 +49,20 @@ export class CloudComponent implements OnInit {
   ];
   //
 
-  formStep: number = 2;
-  agreement!: boolean;
+  formStep: number = 4;
 
   cloudForm = this.fb.group({
     agreement: ['', [Validators.required, Validators.requiredTrue]],
-    serviceCode: ['', [Validators.required]],
+    serviceCode: [
+      'retma',
+      [Validators.required, Validators.pattern('[a-z]{4}')],
+    ],
+    userName: [
+      'ahmedadw',
+      [Validators.required, Validators.pattern('[a-zِA-z]+')],
+    ],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    passwordConfirmation: ['', [Validators.required]],
   });
   incrementStep() {
     this.formStep += 1;
@@ -60,6 +72,9 @@ export class CloudComponent implements OnInit {
   }
   avilableCode!: boolean;
   checkForServicesCode(code: string) {
+    console.log(code);
+    console.log(this.cloudForm);
+
     this.api.checkCode(code).subscribe({
       next: (res: any) => (this.avilableCode = res.avilable),
       error: (err: any) => console.log(err),
