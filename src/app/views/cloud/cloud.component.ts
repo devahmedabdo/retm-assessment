@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-import { faArrowLeft, faCheck } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowLeft,
+  faCheck,
+  faLock,
+} from '@fortawesome/free-solid-svg-icons';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-cloud',
@@ -12,6 +17,7 @@ export class CloudComponent implements OnInit {
   arrow = faArrowLeft;
   emailIcon = faEnvelope;
   check = faCheck;
+  lock = faLock;
   //
   year: number = new Date().getFullYear();
   //
@@ -39,11 +45,12 @@ export class CloudComponent implements OnInit {
   ];
   //
 
-  formStep: number = 1;
+  formStep: number = 2;
   agreement!: boolean;
 
   cloudForm = this.fb.group({
     agreement: ['', [Validators.required, Validators.requiredTrue]],
+    serviceCode: ['', [Validators.required]],
   });
   incrementStep() {
     this.formStep += 1;
@@ -51,10 +58,14 @@ export class CloudComponent implements OnInit {
   decrementStep() {
     this.formStep -= 1;
   }
-  log() {
-    console.log(this.cloudForm);
+  avilableCode!: boolean;
+  checkForServicesCode(code: string) {
+    this.api.checkCode(code).subscribe({
+      next: (res: any) => (this.avilableCode = res.avilable),
+      error: (err: any) => console.log(err),
+    });
   }
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private api: ApiService) {}
 
   ngOnInit(): void {}
 }

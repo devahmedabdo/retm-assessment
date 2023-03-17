@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiUrl: 'https://signup.retm.sa/join/',
+  apiUrl: 'https://signup.retm.sa/join/check.php?',
   production: false,
 };
 

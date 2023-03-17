@@ -68,6 +68,46 @@
     }
   }
   .form-button {
-    @apply bg-lightGreenColor hover:bg-darkGreenColor duration-200 px-6 py-3 w-full text-center text-base text-white rounded-lg mt-5;
+    @apply disabled:cursor-not-allowed bg-lightGreenColor hover:bg-darkGreenColor duration-200 px-6 py-3 w-full text-center text-base text-white rounded-lg mt-5;
+  }
+  .description {
+    @apply md:text-lg font-light max-w-[18rem] xs:max-w-md text-lightGrayColor text-center;
+  }
+  .formInput {
+    @apply pt-5 pb-1;
+    label {
+      @apply font-bold text-sm text-darkGrayColor;
+    }
+    > div {
+      @apply pt-3 pb-1;
+      input {
+        @apply bg-white w-full py-[18px] px-[22px] rounded-lg;
+      }
+    }
+    p {
+      @apply h-5 text-xs text-red-600;
+    }
+  }
+  .form-div {
+    @apply flex justify-between mb-3;
+    > div {
+      @apply flex  justify-between bg-white w-full py-[18px] px-[22px] rounded-lg;
+      > div {
+        @apply flex gap-3 justify-end text-lightGreenColor;
+        > span {
+          > span {
+            &:nth-child(2) {
+              @apply font-bold text-darkGrayColor;
+            }
+            &:nth-child(3) {
+              @apply text-lightGrayColor;
+            }
+          }
+        }
+      }
+      > button {
+        @apply px-4 hover:bg-slate-100 rounded-lg text-base text-lightGreenColor;
+      }
+    }
   }
 }

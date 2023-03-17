@@ -12,8 +12,8 @@
         <img src="../../../assets/Retm Logo.svg" alt="Retm Logo">
       </div>
     </div>
-    <div class="form-section border relative">
-      <div class="form-steps absolute border h-[370px] flex flex-col justify-around top-1/2 -translate-y-1/2">
+    <div class="form-section relative">
+      <div class="form-steps absolute h-[370px] flex flex-col justify-around top-1/2 -translate-y-1/2">
         <div *ngFor="let step of steps" [ngClass]="{active:formStep == step.number,done:formStep > step.number}">
           <div class="step-number">
             <span>{{step.number}}</span>
@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-      <form [formGroup]="cloudForm" class="border max-w-[420px] h-full mx-auto overflow-hidden relative">
+      <form [formGroup]="cloudForm" class="max-w-[420px] h-full mx-auto overflow-hidden relative">
         <div [ngClass]="{hide:formStep != 1}" class="bg-white p-6 rounded-xl">
           <div class="two-word" style="font-size: 24px;">
             الشروط
@@ -57,17 +57,108 @@
           </div>
           <div class=" flex items-center gap-3 px-6 py-2">
             <input id="agreement" type="checkbox" formControlName="agreement">
-            <label class="font-light" for="agreement">قرأتُ و اوافق
+            <label class="font-light cursor-pointer" for="agreement">قرأتُ و اوافق
               <span class="text-vLightGrayColor">على</span><a href="" class="">
                 الشروط و الأحكام </a> <span class="text-vLightGrayColor">
                 التي تم ذكرها أعلاه.</span>
             </label>
           </div>
           <div>
-            <button class="form-button" [disabled]="cloudForm.controls.agreement.invalid"
-              (click)="incrementStep();log()">
+            <button class="form-button" [disabled]="cloudForm.controls.agreement.invalid" (click)="incrementStep()">
               الخطوة التالية
             </button>
+          </div>
+        </div>
+        <div [ngClass]="{hide:formStep != 2}">
+          <div class="two-word">
+            حجز
+            <span>رمز الخدمة</span>
+          </div>
+          <div>
+            <p class="description">قم بإنشاء سحابتك عبر نظام رتم
+            </p>
+          </div>
+          <div class="formInput">
+            <label for="service-code">رمز الخدمة</label>
+            <div>
+              <input #serviceCode formControlName="serviceCode" (change)="checkForServicesCode(serviceCode.value)"
+                id="service-code" type="text" placeholder="انشئ رمز الخدمة الخاص بك ( 4 حروف لاتينية )">
+            </div>
+            <p>
+              <span *ngIf="avilableCode">*رمز الخدمه هذا موجود بالفعل</span>
+              <span *ngIf="cloudForm.controls.serviceCode.invalid && cloudForm.controls.serviceCode.touched">*هذا الحقل
+                مطلوب</span>
+            </p>
+          </div>
+
+          <div class="form-div">
+            <div>
+              <button>تغيير</button>
+              <div>
+                <span><span>https://</span><span> test</span><span>
+                    .retm.sa</span></span> <fa-icon [icon]="lock"></fa-icon>
+              </div>
+            </div>
+          </div>
+          <div class="py-5 px-6 font-light mt-3 mb-6 bg-vLightGrayColor bg-opacity-20 text-lightGrayColor">
+            <p>
+              رمز الخدمة هو ترميز فريد لا يجتمع اكثر من تاجر بنفس الرمز، غالبا تحتاج الرمز عند تسجيل الدخول او الدعم
+              الفني.
+              <br>
+              <br>
+              اختر رمز مكون من احرف انجليزية من 4 خانات او اكثر، بدون مسافات وارقام.
+            </p>
+          </div>
+          <div>
+            <button class="form-button" [disabled]="cloudForm.controls.serviceCode.invalid || avilableCode "
+              (click)="incrementStep()">
+              حجز رمز الخدمة </button>
+          </div>
+        </div>
+        <div [ngClass]="{hide:formStep != 3}">
+          <div class="two-word">
+            حجز
+            <span>رمز الخدمة</span>
+          </div>
+          <div>
+            <p class="description">قم بإنشاء سحابتك عبر نظام رتم
+            </p>
+          </div>
+          <div class="formInput">
+            <label for="service-code">رمز الخدمة</label>
+            <div>
+              <input #serviceCode formControlName="serviceCode" (change)="checkForServicesCode(serviceCode.value)"
+                id="service-code" type="text" placeholder="انشئ رمز الخدمة الخاص بك ( 4 حروف لاتينية )">
+            </div>
+            <p>
+              <span *ngIf="avilableCode">*رمز الخدمه هذا موجود بالفعل</span>
+              <span *ngIf="cloudForm.controls.serviceCode.invalid && cloudForm.controls.serviceCode.touched">*هذا الحقل
+                مطلوب</span>
+            </p>
+          </div>
+
+          <div class="form-div">
+            <div>
+              <button>تغيير</button>
+              <div>
+                <span><span>https://</span><span> test</span><span>
+                    .retm.sa</span></span> <fa-icon [icon]="lock"></fa-icon>
+              </div>
+            </div>
+          </div>
+          <div class="py-5 px-6 font-light mt-3 mb-6 bg-vLightGrayColor bg-opacity-20 text-lightGrayColor">
+            <p>
+              رمز الخدمة هو ترميز فريد لا يجتمع اكثر من تاجر بنفس الرمز، غالبا تحتاج الرمز عند تسجيل الدخول او الدعم
+              الفني.
+              <br>
+              <br>
+              اختر رمز مكون من احرف انجليزية من 4 خانات او اكثر، بدون مسافات وارقام.
+            </p>
+          </div>
+          <div>
+            <button class="form-button" [disabled]="cloudForm.controls.serviceCode.invalid || avilableCode "
+              (click)="incrementStep()">
+              حجز رمز الخدمة </button>
           </div>
         </div>
       </form>
