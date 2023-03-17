@@ -85,6 +85,7 @@
               <input #serviceCode formControlName="serviceCode" (change)="checkForServicesCode(serviceCode.value)"
                 (keydown)="avilableCode=true" id="service-code" type="text"
                 placeholder="انشئ رمز الخدمة الخاص بك ( 4 حروف لاتينية )">
+              <span *ngIf="startApi" class="loading"></span>
             </div>
             <p>
               <span *ngIf="!avilableCode && !cloudForm.controls.serviceCode.errors?.['pattern']">*رمز الخدمه هذا موجود

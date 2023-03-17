@@ -68,7 +68,7 @@
     }
   }
   .form-button {
-    @apply disabled:cursor-not-allowed bg-lightGreenColor hover:bg-darkGreenColor duration-200 px-6 py-3 w-full text-center text-base text-white rounded-lg mt-5;
+    @apply disabled:cursor-not-allowed disabled:opacity-50 bg-lightGreenColor hover:bg-darkGreenColor duration-200 px-6 py-3 w-full text-center text-base text-white rounded-lg mt-5;
   }
   .description {
     @apply md:text-lg font-light max-w-[18rem] xs:max-w-md text-lightGrayColor text-center;
@@ -112,5 +112,8 @@
         @apply px-4 hover:bg-slate-100 rounded-lg text-base text-lightGreenColor;
       }
     }
+  }
+  .loading {
+    @apply border border-darkGreenColor border-t-transparent animate-spin absolute w-5 h-5 rounded-full left-3 top-8;
   }
 }

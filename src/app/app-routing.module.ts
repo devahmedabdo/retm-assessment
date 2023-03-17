@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'cloud', component: CloudComponent },
   { path: 'error', component: ErrorComponent },
   { path: 'success', component: SccessTokenComponent },
-  { path: 'check/:token', component: TokenCheckerComponent },
+  { path: 'check/:', component: TokenCheckerComponent },
 ];
 
 @NgModule({

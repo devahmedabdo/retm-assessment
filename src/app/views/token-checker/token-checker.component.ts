@@ -13,7 +13,7 @@ export class TokenCheckerComponent implements OnInit {
     private api: ApiService,
     private router: Router
   ) {}
-  token: any = this.route.snapshot.params['token'];
+  token: any = this.route.snapshot.url[1].path;
   checkToken(token: any) {
     this.api.checkToken(token).subscribe({
       next: (data: any) => {

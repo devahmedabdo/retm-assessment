@@ -64,12 +64,19 @@ export class CloudComponent implements OnInit {
     this.formStep -= 1;
   }
   avilableCode: boolean = true;
+  startApi: boolean = false;
   checkForServicesCode(code: string) {
+    this.startApi = true;
+
     this.api.checkCode(code).subscribe({
       next: (res: any) => {
         this.avilableCode = res.avilable;
+        this.startApi = false;
       },
-      error: (err: any) => console.log(err),
+      error: (err: any) => {
+        this.startApi = false;
+        console.log(err);
+      },
     });
   }
   constructor(private fb: FormBuilder, private api: ApiService) {}
