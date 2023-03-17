@@ -1,4 +1,22 @@
-# RetmAssessment
+# Retm Assessment
+
+## Component Concept
+
+### in order to achieve conponet concept the project has been divided into several parts
+
+#### set the main colors and screens
+
+#### Style Component like form Input
+
+#### full Component like footer and header
+
+### Dont Repeat your self
+
+#### to achieve that i made a service for http request
+
+## There were some problems with the API, I tried to solve it myself, but after I made sure that the problem was not in my part, I asked for support
+
+## To check Token you can visit /check/'any token'
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
 
