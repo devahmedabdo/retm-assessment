@@ -1,5 +1,9 @@
 .form-section {
   min-height: calc(100vh - 110px);
+  @media (max-width: 560px) {
+    min-height: calc(100vh - 70px);
+  }
+
   .form-steps {
     > div {
       @apply flex gap-10 items-center;
@@ -38,6 +42,44 @@
     &::after {
       @apply h-full absolute right-[15px] -z-10 bg-vLightGrayColor w-[1px];
       content: "";
+    }
+    @media (max-width: 1030px) {
+      > div {
+        .step-desc {
+          div {
+            @apply hidden;
+          }
+        }
+      }
+    }
+    @media (max-width: 815px) {
+      > div {
+        gap: 10px;
+        .step-desc {
+          @apply w-16;
+        }
+      }
+    }
+    @media (max-width: 670px) {
+      > div {
+        .step-desc {
+          @apply hidden;
+        }
+      }
+    }
+    @media (max-width: 560px) {
+      top: 0%;
+      left: 50%;
+      transform: translate(-50%, -40%) rotate(90deg);
+      min-height: 300px;
+      > div {
+        .step-desc {
+          @apply hidden;
+        }
+        .step-number {
+          transform: rotate(-90deg);
+        }
+      }
     }
   }
   form {

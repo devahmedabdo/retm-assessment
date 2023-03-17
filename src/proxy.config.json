@@ -1,0 +1,7 @@
+{
+  "/test-route": {
+    "target": "https://signup.retm.sa/join/",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

@@ -8,9 +8,12 @@ import { HomeComponent } from './views/home/home.component';
 import { CloudComponent } from './views/cloud/cloud.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { TokenCheckerComponent } from './views/token-checker/token-checker.component';
-import { ErrorComponent } from './views/error/error.component';
 import { ApiService } from './services/api.service';
+import { TokenCheckerComponent } from './views/token-checker/token-checker.component';
+import { SccessTokenComponent } from './views/sccess-token/sccess-token.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { ErrorComponent } from './views/error/error.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { ApiService } from './services/api.service';
     HomeComponent,
     CloudComponent,
     TokenCheckerComponent,
+    SccessTokenComponent,
+    HeaderComponent,
+    FooterComponent,
     ErrorComponent,
   ],
   imports: [

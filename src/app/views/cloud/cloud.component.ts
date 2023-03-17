@@ -22,9 +22,7 @@ export class CloudComponent implements OnInit {
   lock = faLock;
   eay = faEye;
   eayslash = faEyeSlash;
-  //
   year: number = new Date().getFullYear();
-  //
   steps: any[] = [
     {
       number: 1,
@@ -47,20 +45,12 @@ export class CloudComponent implements OnInit {
       des: 'تأكد من بياناتك واحجز',
     },
   ];
-  //
 
-  formStep: number = 4;
-
+  formStep: number = 1;
   cloudForm = this.fb.group({
     agreement: ['', [Validators.required, Validators.requiredTrue]],
-    serviceCode: [
-      'retma',
-      [Validators.required, Validators.pattern('[a-z]{4}')],
-    ],
-    userName: [
-      'ahmedadw',
-      [Validators.required, Validators.pattern('[a-zِA-z]+')],
-    ],
+    serviceCode: ['', [Validators.required, Validators.pattern('[a-z]+')]],
+    userName: ['', [Validators.required, Validators.pattern('[a-zِA-z]+')]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     passwordConfirmation: ['', [Validators.required]],
   });
@@ -68,15 +58,17 @@ export class CloudComponent implements OnInit {
     this.formStep += 1;
   }
   decrementStep() {
+    if (this.formStep == 1) {
+      return;
+    }
     this.formStep -= 1;
   }
-  avilableCode!: boolean;
+  avilableCode: boolean = true;
   checkForServicesCode(code: string) {
-    console.log(code);
-    console.log(this.cloudForm);
-
     this.api.checkCode(code).subscribe({
-      next: (res: any) => (this.avilableCode = res.avilable),
+      next: (res: any) => {
+        this.avilableCode = res.avilable;
+      },
       error: (err: any) => console.log(err),
     });
   }

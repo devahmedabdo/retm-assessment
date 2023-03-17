@@ -1,4 +1,4 @@
-<div dir="rtl">
+<div>
   <div class=" h-screen ml:px-14 ml:py-12 xs:py-8 xs:px-8 py-[15px] px-[15px] flex flex-col justify-between">
     <div class="flex justify-between">
       <div>
@@ -8,7 +8,7 @@
           <span>الرجوع</span>
         </button>
       </div>
-      <div>
+      <div routerLink="/" role="button">
         <img src="../../../assets/Retm Logo.svg" alt="Retm Logo">
       </div>
     </div>
@@ -25,7 +25,8 @@
           </div>
         </div>
       </div>
-      <form [formGroup]="cloudForm" class="flex items-center max-w-[420px] min-h-full mx-auto overflow-hidden relative">
+      <form [formGroup]="cloudForm"
+        class="flex pt-8 items-center max-w-[420px] min-h-full mx-auto overflow-hidden relative">
         <div [ngClass]="{hide:formStep != 1}" class="bg-white p-6 rounded-xl">
           <div class="two-word" style="font-size: 24px;">
             الشروط
@@ -81,12 +82,13 @@
           <div class="formInput">
             <label for="service-code">رمز الخدمة</label>
             <div>
-              <input pattern="[a-z]{4}" #serviceCode formControlName="serviceCode"
-                (change)="checkForServicesCode(serviceCode.value)" id="service-code" type="text"
+              <input #serviceCode formControlName="serviceCode" (change)="checkForServicesCode(serviceCode.value)"
+                (keydown)="avilableCode=true" id="service-code" type="text"
                 placeholder="انشئ رمز الخدمة الخاص بك ( 4 حروف لاتينية )">
             </div>
             <p>
-              <span *ngIf="avilableCode">*رمز الخدمه هذا موجود بالفعل</span>
+              <span *ngIf="!avilableCode && !cloudForm.controls.serviceCode.errors?.['pattern']">*رمز الخدمه هذا موجود
+                بالفعل</span>
               <span
                 *ngIf="cloudForm.controls.serviceCode.errors?.['pattern'] && cloudForm.controls.serviceCode.touched">*
                 يجب ان يحتوى الحقل على 4 احرف لاتينيه</span>
@@ -129,7 +131,6 @@
             <p class="description">أنشئ بيانات الدخول لمدير النظام, لتتمكن منالدخول وإدارة حسابك في اي وقت!
             </p>
           </div>
-
           <div class="form-div mt-3">
             <div>
               <button (click)="decrementStep()">تغيير</button>
@@ -139,7 +140,6 @@
               </div>
             </div>
           </div>
-
           <div class="formInput">
             <label for="user-name">اسم المستخدم</label>
             <div>
@@ -189,15 +189,15 @@
               </span>
             </p>
           </div>
-
           <div>
             <button class="form-button" style="margin-top: 0;"
               [disabled]="cloudForm.controls.password.invalid || passwordConfirmation.value != password.value ||  cloudForm.controls.userName.invalid"
               (click)="incrementStep()">
               حجز رمز الخدمة </button>
           </div>
-          <div class="pt-3 ">
-            يُعد النقر على زر اتمام عملية التسجيل موافقة منك على شروط الاستخدام وسياسة الخصوصية
+          <div class="pt-3 text-lightGrayColor">
+            يُعد النقر على زر اتمام عملية التسجيل موافقة منك على <span class="text-darkGrayColor">شروط الاستخدام وسياسة
+              الخصوصية</span>
           </div>
         </div>
         <div [ngClass]="{hide:formStep != 4}">
@@ -209,7 +209,6 @@
             <p class="description py-5">في مايلي موجز لبيانات مدير النظام الخاصة بك!
             </p>
           </div>
-
           <div class="form-div mt-3">
             <div>
               <button (click)="formStep = 2">تغيير</button>
@@ -237,14 +236,6 @@
         </div>
       </form>
     </div>
-    <div class="text-lightGrayColor flex justify-between text-xs xs:text-sm">
-      <a href="mailto:help@retm.sa.com" class="flex items-center gap-2">
-        <fa-icon [icon]="emailIcon"></fa-icon>
-        <span>help@retm.sa.com</span>
-      </a>
-      <div>
-        &copy; {{year}} RETM. All rights reserved.
-      </div>
-    </div>
+    <app-footer></app-footer>
   </div>
 </div>
